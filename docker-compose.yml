@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  latentdevelopment:
+    image: latentdevelopment
+    build:
+      context: .
+      dockerfile: LatentDevelopment/Dockerfile

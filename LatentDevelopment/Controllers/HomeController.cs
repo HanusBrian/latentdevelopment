@@ -15,16 +15,27 @@ namespace LatentDevelopment.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Development()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "Development Journey";
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Lifestyle()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Lifestyle";
+            return View();
+        }
+
+        public IActionResult Resume()
+        {
+            ViewData["Message"] = "Resume";
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewData["Message"] = "About me";
 
             return View();
         }

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/aspsWebDev" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/aspsWebDev">
+<wsdl:types>
+<s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/aspsWebDev">
+<s:element name="Submit">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="_FirstName" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="_LastName" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="_Email" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="_Address" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="_Phone" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="_HTMLResume" type="s:string"/>
+<s:element minOccurs="0" maxOccurs="1" name="_HTMLCode" type="s:string"/>
+<s:element minOccurs="1" maxOccurs="1" name="_SubmitData" type="s:boolean"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+<s:element name="SubmitResponse">
+<s:complexType>
+<s:sequence>
+<s:element minOccurs="0" maxOccurs="1" name="SubmitResult" type="s:string"/>
+</s:sequence>
+</s:complexType>
+</s:element>
+</s:schema>
+</wsdl:types>
+<wsdl:message name="SubmitSoapIn">
+<wsdl:part name="parameters" element="tns:Submit"/>
+</wsdl:message>
+<wsdl:message name="SubmitSoapOut">
+<wsdl:part name="parameters" element="tns:SubmitResponse"/>
+</wsdl:message>
+<wsdl:portType name="ApplySoap">
+<wsdl:operation name="Submit">
+<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<table><tr><td><strong>Summary:</strong></td><td>Use ASP.NET to call this method and submit your resume data to HR and the hiring managers.</td></tr><tr><td><strong>Parameters:</strong></td><td>_FirstName</td></tr><tr><td></td><td>_LastName</td></tr><tr><td></td><td>_Email</td></tr><tr><td></td><td>_Address (i.e. 444 E. Algonquin Rd. Arlington Heights, IL 60005).</td></tr><tr><td></td><td>_Phone (i.e. xxx-xxx-xxxx).</td></tr><tr><td></td><td>_HTMLResume - you must format your resume using HTML (no need for html, head, title, and body tags) and inline stylesheets.</td></tr><tr><td></td><td>_HTMLCode - Using HTML (no need for html, head, title, and body tags) and inline stylesheets format and return the code you wrote to consume this web service.</td></tr><tr><td></td><td>_SubmitData; Set to False to test your code, or set to True when ready to submit.</td></tr><tr><td><strong>Returns:</strong></td><td>If _SubmitData is set to True, it returns the success/failure of submission, otherwise it returns the data that is to be submitted.</td></tr></table>
+</wsdl:documentation>
+<wsdl:input message="tns:SubmitSoapIn"/>
+<wsdl:output message="tns:SubmitSoapOut"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ApplySoap" type="tns:ApplySoap">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="Submit">
+<soap:operation soapAction="http://tempuri.org/aspsWebDev/Submit" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="ApplySoap12" type="tns:ApplySoap">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="Submit">
+<soap12:operation soapAction="http://tempuri.org/aspsWebDev/Submit" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Apply">
+<wsdl:port name="ApplySoap" binding="tns:ApplySoap">
+<soap:address location="https://ws.plasticsurgery.org/services/aspswebdeveloper/apply.asmx"/>
+</wsdl:port>
+<wsdl:port name="ApplySoap12" binding="tns:ApplySoap12">
+<soap12:address location="https://ws.plasticsurgery.org/services/aspswebdeveloper/apply.asmx"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

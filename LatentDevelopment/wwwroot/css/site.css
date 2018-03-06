@@ -1,35 +1,129 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@font-face {
+	font-family: 'junctionbold';
+	src: url('Junction-bold-webfont.eot');
+	src: url('Junction-bold-webfont.eot?#iefix') format('embedded-opentype'), url('Junction-bold-webfont.woff2') format('woff2'), url('Junction-bold-webfont.woff') format('woff'), url('Junction-bold-webfont.ttf') format('truetype'), url('Junction-bold-webfont.svg#junctionbold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+/* Nav-Bar in pic text*/
+.center-img-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 30px;
+	font-family: Monospace;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.thumbnail {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.thumbnail img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: auto;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%,-50%);
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
+.thumbnail img .portrait {
+	width: 100%;
+	height: auto;
+}
+
+video#bgvid {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background: url(../images/Keyboard-Pic.jpg) no-repeat;
+	background-size: cover;
+}
+
+@media screen and (max-device-width: 800px) {
+	body {
+		background: url('../images/Keyboard-Pic.jpg') #000 no-repeat center center fixed;
+	}
+
+	/*#bgvid {
         display: none;
-    }
+    }*/
+	source {
+		display: none;
+	}
+}
+
+video#bgvid {
+	transition: 1s opacity;
+}
+
+.stopfade {
+	opacity: .5;
+}
+
+.fg-image-div {
+	width: 33%;
+	background: rgba(0,0,0,0.3);
+}
+
+.fg-image-div h2 {
+	color: Highlight;
+}
+
+.fg-image-div p {
+	color: white;
+}
+
+
+/* Navagation Bar */
+.nav-button {
+	display: inline-block;
+	font-family: 'junctionbold';
+}
+
+.nav-button a div {
+	color: white;
+	font-size: 18px;
+	margin: 0 1em;
+}
+
+.header-img img {
+	width: 100%;
+	height: auto;
+}
+
+.header-showcase-text h2 {
+	color: white;
+	font-family: 'junctionbold';
 }
